@@ -1,3 +1,6 @@
 flask
+flask-sqlalchemy
 email_validator
 flask_wtf
+pylint
+pylint-flask
