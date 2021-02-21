@@ -1,6 +1,8 @@
 flask
-flask-sqlalchemy
+flask_sqlalchemy
 email_validator
 flask_wtf
 pylint
-pylint-flask
+pylint_flask
+flask_bcrypt
+flask_login
