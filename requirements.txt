@@ -6,3 +6,4 @@ pylint
 pylint_flask
 flask_bcrypt
 flask_login
+pillow
