@@ -1,8 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
-    {% for post in posts %}
+    {% for post in posts.items %}
         <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+        <!-- <table>
+          </tr>
+          <tr>
+            <td><img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}"> </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-outline-info mb-4">
+                <a class=" fas fa-caret-up fa-5x"></a></td>
+              </button>
+          </tr>
+        </table> -->
+        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}"> 
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author.username }}</a>
@@ -12,5 +24,16 @@
             <p class="article-content">{{ post.content }}</p>
           </div>
         </article>
+    {% endfor %}
+    {% for page_number in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+        {% if page_number %}
+          {% if posts.page == page_number %}
+            <a class="btn btn-info mb-4" href="{{url_for('home', page=page_number)}}">{{page_number}}</a>
+          {% else %}
+            <a class="btn btn-outline-info mb-4" href="{{url_for('home', page=page_number)}}">{{page_number}}</a>
+          {% endif %}
+            {% else %}
+          ...
+        {% endif %}
     {% endfor %}
 {% endblock content %}
