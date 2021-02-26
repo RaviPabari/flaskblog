@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+<h1 class="mb-3">Posts by {{user.username}} ({{posts.total}})</h1>
     {% for post in posts.items %}
         <article class="media content-section">
         <!-- <table>
@@ -28,9 +29,9 @@
     {% for page_number in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
         {% if page_number %}
           {% if posts.page == page_number %}
-            <a class="btn btn-info mb-4" href="{{url_for('home', page=page_number)}}">{{page_number}}</a>
+            <a class="btn btn-info mb-4" href="{{url_for('user_posts', username=user.username, page=page_number)}}">{{page_number}}</a>
           {% else %}
-            <a class="btn btn-outline-info mb-4" href="{{url_for('home', page=page_number)}}">{{page_number}}</a>
+            <a class="btn btn-outline-info mb-4" href="{{url_for('user_posts', username=user.username, page=page_number)}}">{{page_number}}</a>
           {% endif %}
             {% else %}
           ...
