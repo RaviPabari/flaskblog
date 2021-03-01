@@ -11,8 +11,8 @@ update their account username or email and profile picture.
 ```
 $ git clone https://github.com/RaviPabari/flaskblog
 $ cd flaskblog/
-$ virtualenv flaskblog
-$ source flaskblog/bin/activate
+$ virtualenv blog
+$ source blog/bin/activate
 ```
 ### Installing Dependencies
 ```
